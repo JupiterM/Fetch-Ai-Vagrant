@@ -1,0 +1,32 @@
+---
+version: "2.0"
+services:
+  fetch-agent:
+    image: ""
+    env: ""
+    expose:
+      - port: 80
+        as: 80
+
+profiles:
+  compute:
+    fetch-agent:
+      cpu:
+        units: 2
+      memory:
+        size: 512Mi
+      storage:
+        - size: 1Gi
+  placement:
+    dcloud:
+      pricing:
+        fetch-agent:
+          denom: uakt
+          amount: 1000       
+
+deployment:
+  fetch-agent:
+    dcloud:
+      profile: fetch-agent
+      count: 1
+
