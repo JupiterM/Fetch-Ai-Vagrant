@@ -49,10 +49,10 @@
         export PATH=$PATH:/home/vagrant/.local/bin
         source /etc/profile 
         pipx inject poetry poetry-plugin-shell
-        #poetry shell
-        #pip3 install ic-py
       args:
         chdir: /vagrant/opt/uAgents/python
         executable: /bin/bash
       become_user: vagrant
+
+    - name: Installation Success Message
 
